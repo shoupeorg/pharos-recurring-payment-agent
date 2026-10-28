@@ -1,0 +1,171 @@
+{
+  "id": "818067d3-b116-4cbc-9d8d-66f0ba478281",
+  "engineVersion": "recurring-payment-agent/1.0.0",
+  "status": "BLOCKED",
+  "terms": {
+    "scheduleId": "evidence-insufficient",
+    "revision": 1,
+    "sender": "0x15ddce897d76ac39c188ade4d353711a60395315",
+    "recipient": "0x4117b9737f64d816be36f6c18c72409c98e4737c",
+    "asset": "USDC",
+    "tokenContract": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+    "amount": "999999999",
+    "scheduledAt": "2026-10-27T22:33:39.252Z",
+    "decimals": 6,
+    "atomicAmount": "999999999000000",
+    "symbol": "USDC"
+  },
+  "paymentDigest": "0xc71cdf6d35722f126d126b4913c12eabd2c3548a4a316071aabd08f4fd3940d9",
+  "transaction": {
+    "from": "0x15ddce897d76ac39c188ade4d353711a60395315",
+    "to": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+    "value": "0x0",
+    "data": "0xa9059cbb0000000000000000000000004117b9737f64d816be36f6c18c72409c98e4737c00000000000000000000000000000000000000000000000000038d7ea4b73dc0"
+  },
+  "simulation": {
+    "kind": "EVM_REVERT",
+    "message": "{\n  \"error\": {\n    \"message\": \"execution reverted: ERC20: transfer amount exceeds balance\",\n    \"code\": 3,\n    \"data\": \"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002645524332303a207472616e7366657220616d6f756e7420657863656564732062616c616e63650000000000000000000000000000000000000000000000000000\"\n  }\n}",
+    "code": null,
+    "data": null
+  },
+  "issues": [
+    {
+      "code": "EVM_REVERT",
+      "message": "{\n  \"error\": {\n    \"message\": \"execution reverted: ERC20: transfer amount exceeds balance\",\n    \"code\": 3,\n    \"data\": \"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002645524332303a207472616e7366657220616d6f756e7420657863656564732062616c616e63650000000000000000000000000000000000000000000000000000\"\n  }\n}"
+    },
+    {
+      "code": "GAS_UNAVAILABLE",
+      "message": "{\n  \"error\": {\n    \"message\": \"execution reverted: ERC20: transfer amount exceeds balance\",\n    \"code\": 3,\n    \"data\": \"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002645524332303a207472616e7366657220616d6f756e7420657863656564732062616c616e63650000000000000000000000000000000000000000000000000000\"\n  }\n}"
+    },
+    {
+      "code": "INSUFFICIENT_TOKEN_FUNDS",
+      "message": "Token balance is insufficient."
+    }
+  ],
+  "balances": {
+    "nativeWei": "179120993032531768767",
+    "tokenAtomic": "2600000038"
+  },
+  "gas": {
+    "estimate": null,
+    "bufferedLimit": null,
+    "gasPriceWei": "10000000000",
+    "maximumCostWei": null
+  },
+  "observation": {
+    "capturedAt": "2026-10-27T22:33:39.252Z",
+    "block": "0x14729ed",
+    "balancePinned": true,
+    "callPinned": true,
+    "estimatePinned": false,
+    "gasPricePinned": false,
+    "expiresAt": "2026-10-27T22:43:39.252Z"
+  },
+  "trace": [
+    {
+      "name": "get_chain_info",
+      "args": {},
+      "pinned": false,
+      "startedAt": "2026-10-27T22:33:40.130Z",
+      "completedAt": "2026-10-27T22:33:40.449Z",
+      "status": "OK"
+    },
+    {
+      "name": "get_block_number",
+      "args": {},
+      "pinned": false,
+      "startedAt": "2026-10-27T22:33:40.449Z",
+      "completedAt": "2026-10-27T22:33:40.746Z",
+      "status": "OK"
+    },
+    {
+      "name": "get_balance",
+      "args": {
+        "address": "0x15ddce897d76ac39c188ade4d353711a60395315",
+        "block": "0x14729ed"
+      },
+      "pinned": true,
+      "startedAt": "2026-10-27T22:33:40.746Z",
+      "completedAt": "2026-10-27T22:33:41.075Z",
+      "status": "OK"
+    },
+    {
+      "name": "get_gas_price",
+      "args": {},
+      "pinned": false,
+      "startedAt": "2026-10-27T22:33:41.075Z",
+      "completedAt": "2026-10-27T22:33:41.359Z",
+      "status": "OK"
+    },
+    {
+      "name": "get_code",
+      "args": {
+        "address": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+        "block": "0x14729ed"
+      },
+      "pinned": true,
+      "startedAt": "2026-10-27T22:33:41.359Z",
+      "completedAt": "2026-10-27T22:33:41.671Z",
+      "status": "OK"
+    },
+    {
+      "name": "eth_call",
+      "args": {
+        "transaction": {
+          "to": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+          "data": "0x70a0823100000000000000000000000015ddce897d76ac39c188ade4d353711a60395315"
+        },
+        "block": "0x14729ed"
+      },
+      "pinned": true,
+      "startedAt": "2026-10-27T22:33:41.672Z",
+      "completedAt": "2026-10-27T22:33:42.081Z",
+      "status": "OK"
+    },
+    {
+      "name": "eth_call",
+      "args": {
+        "transaction": {
+          "from": "0x15ddce897d76ac39c188ade4d353711a60395315",
+          "to": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+          "value": "0x0",
+          "data": "0xa9059cbb0000000000000000000000004117b9737f64d816be36f6c18c72409c98e4737c00000000000000000000000000000000000000000000000000038d7ea4b73dc0"
+        },
+        "block": "0x14729ed"
+      },
+      "pinned": true,
+      "startedAt": "2026-10-27T22:33:42.083Z",
+      "completedAt": "2026-10-27T22:33:43.250Z",
+      "status": "FAILED",
+      "error": {
+        "kind": "EVM_REVERT",
+        "message": "{\n  \"error\": {\n    \"message\": \"execution reverted: ERC20: transfer amount exceeds balance\",\n    \"code\": 3,\n    \"data\": \"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002645524332303a207472616e7366657220616d6f756e7420657863656564732062616c616e63650000000000000000000000000000000000000000000000000000\"\n  }\n}",
+        "code": null,
+        "data": null
+      }
+    },
+    {
+      "name": "estimate_gas",
+      "args": {
+        "transaction": {
+          "from": "0x15ddce897d76ac39c188ade4d353711a60395315",
+          "to": "0xc879c018db60520f4355c26ed1a6d572cdac1815",
+          "value": "0x0",
+          "data": "0xa9059cbb0000000000000000000000004117b9737f64d816be36f6c18c72409c98e4737c00000000000000000000000000000000000000000000000000038d7ea4b73dc0"
+        }
+      },
+      "pinned": false,
+      "startedAt": "2026-10-27T22:33:43.250Z",
+      "completedAt": "2026-10-27T22:33:43.716Z",
+      "status": "FAILED",
+      "error": {
+        "kind": "EVM_REVERT",
+        "message": "{\n  \"error\": {\n    \"message\": \"execution reverted: ERC20: transfer amount exceeds balance\",\n    \"code\": 3,\n    \"data\": \"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002645524332303a207472616e7366657220616d6f756e7420657863656564732062616c616e63650000000000000000000000000000000000000000000000000000\"\n  }\n}",
+        "code": null,
+        "data": null
+      }
+    }
+  ],
+  "disclosure": "NOT SENT / NO SIGNATURE",
+  "validationDigest": "0x0110d85749e846d2a09844894a5dce4b7e9a02d7f5d8235f38abd5efaf41c162"
+}

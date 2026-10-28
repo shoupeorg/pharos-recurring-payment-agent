@@ -1,0 +1,17 @@
+{
+  "evidenceVersion": "1.1",
+  "engineVersion": "recurring-payment-agent/1.0.0",
+  "files": [
+    "mcp-schemas-v1.json",
+    "v1-live-native-ready.json",
+    "v1-live-insufficient.json",
+    "v1-simulated-reconciliation-cases.json",
+    "v1.1-live-cron-occurrence.json"
+  ],
+  "claims": {
+    "scheduledOccurrence": "REAL_DEPLOYED_CRON",
+    "duplicateSuppression": "REAL_DEPLOYED_CRON",
+    "receiptEdgeCases": "SIMULATED",
+    "paidExample": "NOT CLAIMED"
+  }
+}

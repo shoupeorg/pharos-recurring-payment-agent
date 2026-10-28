@@ -1,0 +1,28 @@
+{
+  "name": "pharos-recurring-payment-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {"pharos-recurring-payment": "./src/cli.js"},
+  "scripts": {
+    "test": "node --test",
+    "build": "rollup -c",
+    "check": "npm test && npm run build",
+    "cli": "node src/cli.js",
+    "deploy": "npm run build && wrangler deploy --no-bundle",
+    "capture:evidence": "node scripts/capture-live-evidence.mjs"
+  },
+  "dependencies": {
+    "@js-temporal/polyfill": "0.5.1",
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "viem": "2.38.5"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "29.0.0",
+    "@rollup/plugin-json": "6.1.0",
+    "@rollup/plugin-node-resolve": "16.0.3",
+    "rollup": "4.64.9",
+    "wrangler": "4.151.1"
+  },
+  "engines": {"node": ">=20"}
+}

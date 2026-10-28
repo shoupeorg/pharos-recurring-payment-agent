@@ -1,0 +1,20 @@
+{
+  "evidenceVersion": "1",
+  "engineVersion": "recurring-payment-agent/1.0.0",
+  "capturedAt": "2026-10-27T22:33:44.022Z",
+  "readOnly": true,
+  "noSigning": true,
+  "noBroadcast": true,
+  "files": [
+    "mcp-schemas-v1.json",
+    "v1-live-native-ready.json",
+    "v1-live-insufficient.json",
+    "v1-simulated-reconciliation-cases.json"
+  ],
+  "summary": {
+    "native": "VALIDATED",
+    "insufficient": "BLOCKED",
+    "simulated": "SIMULATED",
+    "scheduler": "PENDING_DEPLOYED_CRON_PROOF"
+  }
+}

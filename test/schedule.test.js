@@ -1,0 +1,11 @@
+import test from"node:test";import assert from"node:assert/strict";
+import{dueOccurrences,nextOccurrence,occurrenceAt,parseStart}from"../src/schedule.js";
+const schedule=(local="2024-01-31T09:00",timezone="America/New_York",cadence="MONTHLY")=>{const s=parseStart(local,timezone);return{...s,startEpochMs:s.epochMs,timezone,cadence,anchorDay:s.anchorDay,occurrenceLimit:null,endEpochMs:null};};
+test("weekly recurrence preserves calendar local time across DST",()=>{const s=schedule("2024-03-03T09:00","America/New_York","WEEKLY");assert.equal(occurrenceAt(s,1).local,"2024-03-10T09:00:00");assert.notEqual(occurrenceAt(s,0).epochMs+7*86400000,occurrenceAt(s,1).epochMs)});
+test("DST gap uses Temporal compatible forward behavior",()=>{const s=schedule("2024-03-10T02:30","America/New_York","WEEKLY");assert.equal(occurrenceAt(s,0).local,"2024-03-10T03:30:00")});
+test("DST overlap is deterministic",()=>{const a=parseStart("2024-11-03T01:30","America/New_York"),b=parseStart("2024-11-03T01:30","America/New_York");assert.equal(a.epochMs,b.epochMs)});
+test("monthly anchor clamps then restores day 31",()=>{const s=schedule();assert.equal(occurrenceAt(s,1).local,"2024-02-29T09:00:00");assert.equal(occurrenceAt(s,2).local,"2024-03-31T09:00:00")});
+test("monthly leap and non-leap February",()=>{assert.equal(occurrenceAt(schedule("2023-01-31T09:00"),1).local,"2023-02-28T09:00:00");assert.equal(occurrenceAt(schedule("2024-01-31T09:00"),1).local,"2024-02-29T09:00:00")});
+test("invalid timezone and date fail",()=>{assert.throws(()=>parseStart("nope","Mars/Base"));assert.throws(()=>parseStart("2024-01-01T00:00","Mars/Base"))});
+test("end date and occurrence limit stop next",()=>{const s=schedule();s.occurrenceLimit=2;assert.equal(nextOccurrence(s,occurrenceAt(s,1).epochMs+1),null);const x=schedule();x.endEpochMs=occurrenceAt(x,1).epochMs;assert.equal(nextOccurrence(x,occurrenceAt(x,1).epochMs+1),null)});
+test("bounded catch-up never exceeds requested limit",()=>{const s=schedule("2020-01-01T00:00","UTC","WEEKLY");assert.equal(dueOccurrences(s,s.startEpochMs-1,Date.now(),12).length,12)});

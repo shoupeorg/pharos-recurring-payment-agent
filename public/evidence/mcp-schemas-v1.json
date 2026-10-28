@@ -1,0 +1,381 @@
+{
+  "evidenceVersion": "1",
+  "capturedAt": "2026-10-27T18:44:29.883Z",
+  "endpoint": "https://mcp.pharos.xyz/mcp",
+  "tools": [
+    {
+      "name": "get_chain_info",
+      "description": "Get Pharos chain ID, client version, latest block and configured RPC endpoint",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_block_number",
+      "description": "Get the latest Pharos block number",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_balance",
+      "description": "Get the native PROS balance of an EVM address",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "EVM address"
+          },
+          "block": {
+            "description": "Block tag or number; defaults to latest",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_transaction_count",
+      "description": "Get an address transaction count (nonce)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "block": {
+            "description": "Usually latest or pending",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_gas_price",
+      "description": "Get current Pharos gas price and priority fee",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_block",
+      "description": "Get a Pharos block by tag or number",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "block": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "includeTransactions": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_transaction",
+      "description": "Get a transaction by hash",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "hash"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_transaction_receipt",
+      "description": "Get a transaction receipt by hash",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "hash"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_code",
+      "description": "Get contract bytecode at an address",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "block": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_storage_at",
+      "description": "Read a contract storage slot",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "position": {
+            "type": "string"
+          },
+          "block": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "required": [
+          "address",
+          "position"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "eth_call",
+      "description": "Execute a read-only EVM contract call",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transaction": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "data": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "gas": {
+                "type": "string"
+              },
+              "gasPrice": {
+                "type": "string"
+              },
+              "maxFeePerGas": {
+                "type": "string"
+              },
+              "maxPriorityFeePerGas": {
+                "type": "string"
+              },
+              "nonce": {
+                "type": "string"
+              }
+            }
+          },
+          "block": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "required": [
+          "transaction"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "estimate_gas",
+      "description": "Estimate gas for a transaction without sending it",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transaction": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "data": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "gas": {
+                "type": "string"
+              },
+              "gasPrice": {
+                "type": "string"
+              },
+              "maxFeePerGas": {
+                "type": "string"
+              },
+              "maxPriorityFeePerGas": {
+                "type": "string"
+              },
+              "nonce": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "required": [
+          "transaction"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "get_logs",
+      "description": "Get EVM logs. The fromBlock/toBlock window is limited to 1000 blocks inclusive (the upstream RPC limit); page through larger ranges.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "fromBlock": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "toBlock": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          }
+        },
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    },
+    {
+      "name": "send_raw_transaction",
+      "description": "Broadcast an already-signed raw EVM transaction. This server never receives a private key.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rawTransaction": {
+            "type": "string",
+            "description": "0x-prefixed signed transaction bytes"
+          }
+        },
+        "required": [
+          "rawTransaction"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      }
+    }
+  ],
+  "readOnly": true
+}

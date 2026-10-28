@@ -1,0 +1,171 @@
+{
+  "evidenceVersion": "1.1",
+  "evidenceClass": "REAL_DEPLOYED_CRON",
+  "capturedAt": "2026-10-28T22:26:11.265Z",
+  "deploymentUrl": "https://pharos-recurring-payment-agent.shoupeorg.workers.dev",
+  "heartbeat": {
+    "singleton": 1,
+    "heartbeat_at": "2026-10-28T22:25:35.223Z",
+    "invocation_id": "be95166f-871f-4254-8b30-54b5a4d816d9",
+    "source": "CRON",
+    "schedules_scanned": 1,
+    "occurrences_created": 0,
+    "duplicates_ignored": 0
+  },
+  "occurrence": {
+    "id": "04e177b1-5183-4da2-b647-0c976f025f2e",
+    "key": "0x3804771831347fce858784ee8a63bf6cf5939c49770f923d62cabff0f3459e9d",
+    "scheduleId": "c7503916-b65b-478c-b43e-192693ba6385",
+    "revision": 1,
+    "index": 0,
+    "scheduledAtMs": 1793140696000,
+    "scheduledLocal": "2026-10-28T02:08:16",
+    "timezone": "Asia/Tehran",
+    "detectedAt": "2026-10-27T22:45:34.131Z",
+    "validatedAt": "2026-10-27T22:45:42.358Z",
+    "preparedAt": null,
+    "state": "READY_FOR_REVIEW",
+    "provenance": "CRON",
+    "terms": {
+      "scheduleId": "c7503916-b65b-478c-b43e-192693ba6385",
+      "revision": 1,
+      "sender": "0x15ddce897d76ac39c188ade4d353711a60395315",
+      "recipient": "0x4117b9737f64d816be36f6c18c72409c98e4737c",
+      "asset": "PHRS",
+      "tokenContract": null,
+      "amount": "0.000001",
+      "scheduledAt": "2026-10-27T22:38:16Z"
+    },
+    "validation": {
+      "id": "01689578-1eb5-46ec-a74f-dfa89d1393db",
+      "engineVersion": "recurring-payment-agent/1.0.0",
+      "status": "VALIDATED",
+      "terms": {
+        "scheduleId": "c7503916-b65b-478c-b43e-192693ba6385",
+        "revision": 1,
+        "sender": "0x15ddce897d76ac39c188ade4d353711a60395315",
+        "recipient": "0x4117b9737f64d816be36f6c18c72409c98e4737c",
+        "asset": "PHRS",
+        "tokenContract": null,
+        "amount": "0.000001",
+        "scheduledAt": "2026-10-27T22:38:16Z",
+        "decimals": 18,
+        "atomicAmount": "1000000000000",
+        "symbol": "PHRS"
+      },
+      "paymentDigest": "0x925106bfe6c0ae0c96f2e2662f3260cb8d3053f4d142e457420cad7430e77e17",
+      "transaction": {
+        "from": "0x15ddce897d76ac39c188ade4d353711a60395315",
+        "to": "0x4117b9737f64d816be36f6c18c72409c98e4737c",
+        "value": "0xe8d4a51000",
+        "data": "0x"
+      },
+      "simulation": {
+        "kind": "SUCCESS",
+        "returnData": "0x"
+      },
+      "issues": [],
+      "balances": {
+        "nativeWei": "179115379507531768767",
+        "tokenAtomic": null
+      },
+      "gas": {
+        "estimate": "21000",
+        "bufferedLimit": "25200",
+        "gasPriceWei": "10000000000",
+        "maximumCostWei": "252000000000000"
+      },
+      "observation": {
+        "capturedAt": "2026-10-27T22:45:36.771Z",
+        "block": "0x1472d08",
+        "balancePinned": true,
+        "callPinned": true,
+        "estimatePinned": false,
+        "gasPricePinned": false,
+        "expiresAt": "2026-10-27T22:55:36.771Z"
+      },
+      "trace": [
+        {
+          "name": "get_chain_info",
+          "args": {},
+          "pinned": false,
+          "startedAt": "2026-10-27T22:45:39.605Z",
+          "completedAt": "2026-10-27T22:45:40.511Z",
+          "status": "OK"
+        },
+        {
+          "name": "get_block_number",
+          "args": {},
+          "pinned": false,
+          "startedAt": "2026-10-27T22:45:40.511Z",
+          "completedAt": "2026-10-27T22:45:40.744Z",
+          "status": "OK"
+        },
+        {
+          "name": "get_balance",
+          "args": {
+            "address": "0x15ddce897d76ac39c188ade4d353711a60395315",
+            "block": "0x1472d08"
+          },
+          "pinned": true,
+          "startedAt": "2026-10-27T22:45:40.744Z",
+          "completedAt": "2026-10-27T22:45:40.993Z",
+          "status": "OK"
+        },
+        {
+          "name": "get_gas_price",
+          "args": {},
+          "pinned": false,
+          "startedAt": "2026-10-27T22:45:40.993Z",
+          "completedAt": "2026-10-27T22:45:41.241Z",
+          "status": "OK"
+        },
+        {
+          "name": "eth_call",
+          "args": {
+            "transaction": {
+              "from": "0x15ddce897d76ac39c188ade4d353711a60395315",
+              "to": "0x4117b9737f64d816be36f6c18c72409c98e4737c",
+              "value": "0xe8d4a51000",
+              "data": "0x"
+            },
+            "block": "0x1472d08"
+          },
+          "pinned": true,
+          "startedAt": "2026-10-27T22:45:41.241Z",
+          "completedAt": "2026-10-27T22:45:41.677Z",
+          "status": "OK"
+        },
+        {
+          "name": "estimate_gas",
+          "args": {
+            "transaction": {
+              "from": "0x15ddce897d76ac39c188ade4d353711a60395315",
+              "to": "0x4117b9737f64d816be36f6c18c72409c98e4737c",
+              "value": "0xe8d4a51000",
+              "data": "0x"
+            }
+          },
+          "pinned": false,
+          "startedAt": "2026-10-27T22:45:41.677Z",
+          "completedAt": "2026-10-27T22:45:42.131Z",
+          "status": "OK"
+        }
+      ],
+      "disclosure": "NOT SENT / NO SIGNATURE",
+      "validationDigest": "0x4c417e907b41f50f2243b7a637eb9850ac40446defbd3bcb0bf718576d6ffa72"
+    }
+  },
+  "latenessMs": 438131,
+  "duplicateProof": {
+    "occurrenceCount": 1,
+    "laterHeartbeatAt": "2026-10-28T22:25:35.223Z",
+    "laterInvocationCreated": 0,
+    "statement": "Later genuine Cron invocation left the unique scheduled occurrence count at one."
+  },
+  "safety": {
+    "signed": false,
+    "broadcast": false,
+    "paid": false
+  }
+}

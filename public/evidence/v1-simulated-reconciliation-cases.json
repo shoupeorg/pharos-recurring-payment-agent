@@ -1,0 +1,10 @@
+{
+  "evidenceClass": "SIMULATED",
+  "purpose": "Deterministic receipt edge-case tests only",
+  "cases": [
+    "pending receipt remains AWAITING_CONFIRMATION",
+    "reverted receipt becomes FAILED_ONCHAIN",
+    "wrong sender/amount rejected",
+    "duplicate hash constrained by D1"
+  ]
+}

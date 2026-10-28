@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pharos-recurring-payment-agent",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {"directory":"./public","binding":"ASSETS","run_worker_first":["/api/*"]},
+  "d1_databases": [{"binding":"DB","database_name":"pharos-recurring-payment-agent","database_id":"8758b55f-467e-42a6-bae9-33733cead755","migrations_dir":"migrations"}],
+  "triggers": {"crons":["* * * * *"]},
+  "observability": {"enabled":true}
+}
