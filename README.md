@@ -78,4 +78,3 @@ node src/cli.js --cadence WEEKLY --start 2026-11-01T09:00 --timezone Asia/Tehran
 Versioned evidence is under `evidence/` and mirrored publicly under `public/evidence/`. Real scheduler proof must have provenance `CRON`; manual API/UI actions are labeled `MANUAL_REVIEWER`. No PAID example is fabricated because no spending is authorized. Deterministic receipt fixtures are labeled SIMULATED.
 
 Limitations: Cron is best effort; Chain MCP gas estimates are unpinned; public addresses do not prove wallet control; token hooks/fees/proxies can alter outcomes; and independent unsigned transfers lack contract-enforced idempotency.
-
